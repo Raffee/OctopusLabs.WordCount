@@ -65,7 +65,6 @@ namespace OctopusLabs.WordCounter.Web
             ILoggerFactory loggerFactory)
         {
             this.Configure(app, env, loggerFactory);
-            SeedData.PopulateTestData(app.ApplicationServices.GetService<AppDbContext>());
         }
 
 

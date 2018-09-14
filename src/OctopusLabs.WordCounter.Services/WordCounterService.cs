@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using OctopusLabs.WordCounter.Core.DataTransferObjects;
 using OctopusLabs.WordCounter.Core.Entities;
@@ -14,7 +15,7 @@ namespace OctopusLabs.WordCounter.Services
     public class WordCounterService
     {
         private readonly ILogger _logger;
-        private readonly IWordCountRepository _wordCountRepository;
+        private IWordCountRepository _wordCountRepository;
 
         private WordCounterService()
         {

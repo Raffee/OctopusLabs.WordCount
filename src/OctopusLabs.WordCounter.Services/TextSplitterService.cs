@@ -12,6 +12,14 @@ namespace OctopusLabs.WordCounter.Services
     {
         private readonly ITextReaderService _textReader;
 
+        //Define the characters that should bemarked out and used as word separators.
+        //There's probably a better way of doing this.
+        private readonly char[] wordSeparators = new char[]
+        {
+            ' ', ',', '.', ';', ':', '!', '?', '(', ')', '\'', '\"', '{', '©',
+            '}', '&', '+', '*', '/', '\\', '`', '~', '@', '#', '$', '%', '^', '[', ']', '<', '>', '|'
+        };
+
         private TextSplitterService()
         {
         }
@@ -30,9 +38,17 @@ namespace OctopusLabs.WordCounter.Services
             return wordCounts;
         }
 
-        public static string[] ConvertStringToArray(string text)
+        public string[] ConvertStringToArray(string text)
         {
-            return text.Split(new char[] { ' ', ',', '.', ';', ':', '!', '?', '(', ')', '\'', '\"', '{', '}' });
+            text = text.Replace("\r\n", " ");
+            text = text.Replace(" - ", " ");
+            text = text.Replace(" _ ", " ");
+            text = text.Replace("&gt;", " ");
+            text = text.Replace("&lt;", " ");
+            text = text.Replace("&amp;", " ");
+            text = text.Replace("&nbsp;", " ");
+            text = text.Replace("&copy;", " ");
+            return text.Split(wordSeparators);
         }
 
         public static List<KeyValuePair<string, int>> GetWordCountCollection(string[] arrayOfWords, int numberOfItemsToGet)

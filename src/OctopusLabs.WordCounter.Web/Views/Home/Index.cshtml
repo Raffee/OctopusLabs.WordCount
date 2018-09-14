@@ -20,7 +20,7 @@
     <div class="buttons">
         <input type="submit" value="Count Words" id="count_words">
     </div>
-    <canvas id="word_cloud" class="word_cloud"></canvas>
+    <canvas id="word_cloud" class="word_cloud" width="700px"></canvas>
 }
 
 <script type="text/javascript">
@@ -40,9 +40,6 @@
 
     WordCloud.minFontSize = "15px";
     WordCloud(document.getElementById('word_cloud'), { list: list2,      
-        gridSize: Math.round(2 * document.getElementById('word_cloud').offsetWidth / 1024),
-        weightFactor: function (size) {
-            return Math.pow(size, 2) * document.getElementById('word_cloud').offsetWidth / 1024;
-        }} );
+        gridSize: 600} );
 
 </script>

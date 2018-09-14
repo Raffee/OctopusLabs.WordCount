@@ -51,7 +51,7 @@ namespace OctopusLabs.WordCounter.Services
             {
                 if (!IsValidWord(word)) continue;
 
-                var loweredWord = word.ToLower();
+                var loweredWord = word.Trim().ToLower();
                 if (wordCounts.ContainsKey(loweredWord))
                 {
                     var currentCount = (int)(wordCounts[loweredWord]);

@@ -27,8 +27,18 @@ namespace OctopusLabs.WordCounter.Web.Controllers
         // GET: test
         public ActionResult Index()
         {
-            var countedWords = _service.GetAllCountedWords();
-            return View(countedWords);
+            try
+            {
+                var countedWords = _service.GetAllCountedWords();
+                return View(countedWords);
+            }
+            catch (Exception e)
+            {
+                ViewData["ErrorMessage"] = e.Message;
+                ViewData["ErrorStack"] = e.StackTrace;
+                ViewData["ErrorInner"] = e.InnerException?.Message;
+                return View("Error");
+            }
         }
     }
 }

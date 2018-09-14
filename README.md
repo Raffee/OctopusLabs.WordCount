@@ -49,7 +49,7 @@ Some unit tests are found in a separate Tests project. These are not exhaustive 
 Since the app is also hosted on Azure and we are using machine specific pricate/public keys for encryption, there will be issues when the application is run locally because a new pair of keys will be generated on the local machine and therefore there will be
 different  records in the database encryped using different keys. This will result in an error when trying to access the Admin page to read the list of records from the database as there will most probably be records that are not encryped with the key generated on the current host.
 
-### Aenemic Domain Model
+### Anemic Domain Model
 It is obvious that the domain model (namely the WordCount class) does not contain any domain logic at this time. To adhere to DDD guidelines and have a more flexible and testable system we should try to move the existing logic from the services to the domain entities (
 as much as possible, wherever the logic is truly related to the "domain").
 
@@ -59,6 +59,13 @@ The library used here (SautinSoft) is pretty good in cleaning up HTML tags and e
 
 ### Slow Connection
 Observably, the page is very slow at the moment. Slow internet connection sometimes causes the process of saving the counted words into Google Cloud to be aborted midway. When this happens, the web page will return to it's initial empty state.
+
+### Word Cloud Layout
+When the number of words is small ( ~ < 75) the word cloud is generated very small and at the bottom of the page. This is clearly a very annoying issue for the users' experience, however it was not possible to fix it by the deadline for deployment.
+
+### Unit Tests not Running
+During the challenged I discovered that NUnit (my preferred unit testing framework) is not compatible with .NET Core 2.0. This resulted in having to create unit tests in the similar MSTest framework (I'm not familiar with XUNit enough to venture into it now),
+but for some reason, these tests were not being run from within Visual Studio 2017.
 
 ## Versions
 1.0.0

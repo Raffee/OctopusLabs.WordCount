@@ -6,12 +6,17 @@
 <h2>List Of Counted Words</h2>
 <table>
     <tr>
+        <th>Rank</th>
         <th>Word</th>
         <th>Count</th>
     </tr>
+    @{
+        var index = 0;
+    }
     @foreach (var word in Model)
     {
         <tr>
+            <td>@(++index)</td>
             <td>@word.Word</td>
             <td>@word.Count</td>
         </tr>

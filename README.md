@@ -28,9 +28,31 @@ The usage of the CspParameters class in very straight-forward as described in ht
 It works somehow similarly to the singleton design pattern in the sense that if there isn't a CSP stored and new one is generated and returned, but if one exists, then the existing instance is returned.
 
 The CSP is stored perpetually, therefore we don't need to worry about having different keys across different sessions or operations.
+One important thing to remember is to set the "Flags" property of the CspParameters to "CspProviderFlags.UseMachineKeyStore" in order to use the key store on the host machine. Otherwise you will get a "File Not Found" exception.
+
+### New Technologies/Frameworks/Libraries Learned
+-	Google Cloud SQL (MySql)
+-	WordCloud2.js
+-	Practical Implementation of Asymmetric Encryption 
 
 ## Test
 Some unit tests are found in a separate Tests project. These are not exhaustive and they are here only to provide a sample of how to write unit tests to check the code.
+
+## Upcoming Features and Enhancements
+-	Authentication to access the Admin section.
+-	Complete the REST API.
+-	Use Auto-Mapping to convert Entities to Dtos.
+-	Save to database asynchronously to free the web page and speed up the response time.
+
+## Known Issues
+### Duplicate Keys
+Since the app is also hosted on Azure and we are using machine specific pricate/public keys for encryption, there will be issues when the application is run locally because a new pair of keys will be generated on the local machine and therefore there will be
+different  records in the database encryped using different keys. This will result in an error when trying to access the Admin page to read the list of records from the database as there will most probably be records that are not encryped with the key generated on the current host.
+
+### Aenemic Domain Model
+It is obvious that the domain model (namely the WordCount class) does not contain any domain logic at this time. To adhere to DDD guidelines and have a more flexible and testable system we should try to move the existing logic from the services to the domain entities (
+as much as possible, wherever the logic is truly related to the "domain").
+
 ## Versions
 1.0.0
 

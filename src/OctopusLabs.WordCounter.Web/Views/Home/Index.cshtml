@@ -1,0 +1,48 @@
+﻿@model OctopusLabs.WordCounter.Web.ViewModels.WordCounterViewModel
+@inject IJsonHelper Json
+@{
+    ViewData["Title"] = "Count Words On a Web Page";
+}
+
+<!-- GOOGLE IMG -->
+<div class="google">
+    <a href="#" id="google_logo"><img src="images/octopuslabslogo.jpg" alt=" photo google-logo_zpspkcztsjo.png" /></a>
+</div>
+@using (Html.BeginForm())
+{
+    <!-- FORM SEARCH -->
+    <div class="form">
+        <label for="form-search"></label>
+        <input type="text" id="form-search" name="urlToSearch" placeholder="Type the URL of a web page to count the words on it">
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="buttons">
+        <input type="submit" value="Count Words" id="count_words">
+    </div>
+    <canvas id="word_cloud" class="word_cloud"></canvas>
+}
+
+<script type="text/javascript">
+    @if (Model != null && Model.CountedWords.Any())
+    {
+        @:var arrayOfCountedWords = @Html.Raw(Json.Serialize(Model.CountedWordsJson));
+    }
+    else
+    {
+        @:var arrayOfCountedWords = [];
+    }
+
+    var list2 = [];
+    for (var i in arrayOfCountedWords.value) {
+        list2.push([arrayOfCountedWords.value[i]["key"], arrayOfCountedWords.value[i]["value"]]);
+    }
+
+    WordCloud.minFontSize = "15px";
+    WordCloud(document.getElementById('word_cloud'), { list: list2,      
+        gridSize: Math.round(2 * document.getElementById('word_cloud').offsetWidth / 1024),
+        weightFactor: function (size) {
+            return Math.pow(size, 2) * document.getElementById('word_cloud').offsetWidth / 1024;
+        }} );
+
+</script>

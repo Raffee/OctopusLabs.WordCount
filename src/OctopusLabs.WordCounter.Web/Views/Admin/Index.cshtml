@@ -1,0 +1,19 @@
+﻿@model List<OctopusLabs.WordCounter.Core.DataTransferObjects.WordCountDto>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>List Of Counted Words</h2>
+<table>
+    <tr>
+        <th>Word</th>
+        <th>Count</th>
+    </tr>
+    @foreach (var word in Model)
+    {
+        <tr>
+            <td>@word.Word</td>
+            <td>@word.Count</td>
+        </tr>
+    }
+</table>

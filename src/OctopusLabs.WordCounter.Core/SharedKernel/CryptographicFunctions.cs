@@ -6,7 +6,7 @@ using OctopusLabs.WordCounter.Core.SharedKernel;
 
 namespace OctopusLabs.WordCounter.Core.SharedKernel
 {
-    public static class Security
+    public static class CryptographicFunctions
     {
         public static byte[] GenerateSaltedHash(byte[] plainText, byte[] salt)
         {

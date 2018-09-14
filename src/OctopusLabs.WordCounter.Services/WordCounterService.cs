@@ -35,7 +35,7 @@ namespace OctopusLabs.WordCounter.Services
             }
 
             // Create an instance of the RSA algorithm class  
-            var rsa = Security.GetKeyFromContainer(WordCounterConstants.KeyContainerName);
+            var rsa = CryptographicFunctions.GetKeyFromContainer(WordCounterConstants.KeyContainerName);
             // Get the public keyy   
             var publicKey = rsa.ToXMLString(false); // false to get the public key    
             var someSalt = "somesalt";
@@ -50,8 +50,8 @@ namespace OctopusLabs.WordCounter.Services
                 var countedWord = countedWords[i];
                 var keyAsBytes = Encoding.UTF32.GetBytes(countedWord.Key);
                 var saltAsBytes = Encoding.UTF32.GetBytes(someSalt);
-                var hashedWord = Security.GenerateSaltedHash(keyAsBytes, saltAsBytes);
-                var encryptedWord = Security.Encrypt(publicKey, countedWord.Key);
+                var hashedWord = CryptographicFunctions.GenerateSaltedHash(keyAsBytes, saltAsBytes);
+                var encryptedWord = CryptographicFunctions.Encrypt(publicKey, countedWord.Key);
 
                 var wordCount = new WordCount
                 {

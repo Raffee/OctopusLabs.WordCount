@@ -53,6 +53,13 @@ different  records in the database encryped using different keys. This will resu
 It is obvious that the domain model (namely the WordCount class) does not contain any domain logic at this time. To adhere to DDD guidelines and have a more flexible and testable system we should try to move the existing logic from the services to the domain entities (
 as much as possible, wherever the logic is truly related to the "domain").
 
+### Text Extraction
+The text extraction algorithm is not 100% correct! There are quite a few suggestions online explaining how to extract text from HTML correctly (and some libraries for sale), but of the ones I had time to try, none yielded 100% correct results.
+The library used here (SautinSoft) is pretty good in cleaning up HTML tags and extracting text only, however, there are many special case to consider.
+
+### Slow Connection
+Observably, the page is very slow at the moment. Slow internet connection sometimes causes the process of saving the counted words into Google Cloud to be aborted midway. When this happens, the web page will return to it's initial empty state.
+
 ## Versions
 1.0.0
 

@@ -25,11 +25,11 @@ namespace OctopusLabs.WordCounter.Infrastructure.Data
         public List<WordCountDto> List()
         {
             var wordCounts = _dbContext.Set<WordCount>().ToList();
-            var rsa = Security.GetKeyFromContainer(WordCounterConstants.KeyContainerName);
+            var rsa = CryptographicFunctions.GetKeyFromContainer(WordCounterConstants.KeyContainerName);
 
             return wordCounts.Select(wordCount => new WordCountDto
                 {
-                    Word = Security.Decrypt(rsa.ToXMLString(true), wordCount.EncryptedWord),
+                    Word = CryptographicFunctions.Decrypt(rsa.ToXMLString(true), wordCount.EncryptedWord),
                     Count = wordCount.Count
                 })
                 .ToList();

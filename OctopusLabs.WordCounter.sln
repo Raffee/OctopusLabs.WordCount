@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OctopusLabs.WordCounter.Inf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OctopusLabs.WordCounter.Web", "src\OctopusLabs.WordCounter.Web\OctopusLabs.WordCounter.Web.csproj", "{C9751CB7-4CD6-4633-A99A-4F6ADD525437}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OctopusLabs.WordCounter.Tests", "tests\OctopusLabs.WordCounter.Tests\OctopusLabs.WordCounter.Tests.csproj", "{AEE17BAB-D187-4BC5-B640-40CC0749566C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OctopusLabs.WordCounter.Services", "src\OctopusLabs.WordCounter.Services\OctopusLabs.WordCounter.Services.csproj", "{B26543B3-72D0-4EEA-94AB-78B6C974CCE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctopusLabs.WordCounter.Services", "src\OctopusLabs.WordCounter.Services\OctopusLabs.WordCounter.Services.csproj", "{B26543B3-72D0-4EEA-94AB-78B6C974CCE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctopusLabs.WordCounter.Tests", "tests\OctopusLabs.WordCounter.Tests\OctopusLabs.WordCounter.Tests.csproj", "{24A3066C-A073-413A-BC7B-BF2747890669}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,18 +63,6 @@ Global
 		{C9751CB7-4CD6-4633-A99A-4F6ADD525437}.Release|x64.Build.0 = Release|Any CPU
 		{C9751CB7-4CD6-4633-A99A-4F6ADD525437}.Release|x86.ActiveCfg = Release|Any CPU
 		{C9751CB7-4CD6-4633-A99A-4F6ADD525437}.Release|x86.Build.0 = Release|Any CPU
-		{AEE17BAB-D187-4BC5-B640-40CC0749566C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AEE17BAB-D187-4BC5-B640-40CC0749566C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AEE17BAB-D187-4BC5-B640-40CC0749566C}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{AEE17BAB-D187-4BC5-B640-40CC0749566C}.Debug|x64.Build.0 = Debug|Any CPU
-		{AEE17BAB-D187-4BC5-B640-40CC0749566C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{AEE17BAB-D187-4BC5-B640-40CC0749566C}.Debug|x86.Build.0 = Debug|Any CPU
-		{AEE17BAB-D187-4BC5-B640-40CC0749566C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AEE17BAB-D187-4BC5-B640-40CC0749566C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AEE17BAB-D187-4BC5-B640-40CC0749566C}.Release|x64.ActiveCfg = Release|Any CPU
-		{AEE17BAB-D187-4BC5-B640-40CC0749566C}.Release|x64.Build.0 = Release|Any CPU
-		{AEE17BAB-D187-4BC5-B640-40CC0749566C}.Release|x86.ActiveCfg = Release|Any CPU
-		{AEE17BAB-D187-4BC5-B640-40CC0749566C}.Release|x86.Build.0 = Release|Any CPU
 		{B26543B3-72D0-4EEA-94AB-78B6C974CCE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B26543B3-72D0-4EEA-94AB-78B6C974CCE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B26543B3-72D0-4EEA-94AB-78B6C974CCE8}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -87,6 +75,18 @@ Global
 		{B26543B3-72D0-4EEA-94AB-78B6C974CCE8}.Release|x64.Build.0 = Release|Any CPU
 		{B26543B3-72D0-4EEA-94AB-78B6C974CCE8}.Release|x86.ActiveCfg = Release|Any CPU
 		{B26543B3-72D0-4EEA-94AB-78B6C974CCE8}.Release|x86.Build.0 = Release|Any CPU
+		{24A3066C-A073-413A-BC7B-BF2747890669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24A3066C-A073-413A-BC7B-BF2747890669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24A3066C-A073-413A-BC7B-BF2747890669}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{24A3066C-A073-413A-BC7B-BF2747890669}.Debug|x64.Build.0 = Debug|Any CPU
+		{24A3066C-A073-413A-BC7B-BF2747890669}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{24A3066C-A073-413A-BC7B-BF2747890669}.Debug|x86.Build.0 = Debug|Any CPU
+		{24A3066C-A073-413A-BC7B-BF2747890669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24A3066C-A073-413A-BC7B-BF2747890669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24A3066C-A073-413A-BC7B-BF2747890669}.Release|x64.ActiveCfg = Release|Any CPU
+		{24A3066C-A073-413A-BC7B-BF2747890669}.Release|x64.Build.0 = Release|Any CPU
+		{24A3066C-A073-413A-BC7B-BF2747890669}.Release|x86.ActiveCfg = Release|Any CPU
+		{24A3066C-A073-413A-BC7B-BF2747890669}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,8 +95,8 @@ Global
 		{4548EB20-1D1B-477B-AF6E-DD55653A6583} = {106AE906-5075-410A-B941-912F811848EE}
 		{220361D6-9C76-4E3F-BD34-3C7B50E2CA4D} = {106AE906-5075-410A-B941-912F811848EE}
 		{C9751CB7-4CD6-4633-A99A-4F6ADD525437} = {106AE906-5075-410A-B941-912F811848EE}
-		{AEE17BAB-D187-4BC5-B640-40CC0749566C} = {B31B4797-1D9F-4288-808C-BE9A31A98C7D}
 		{B26543B3-72D0-4EEA-94AB-78B6C974CCE8} = {106AE906-5075-410A-B941-912F811848EE}
+		{24A3066C-A073-413A-BC7B-BF2747890669} = {B31B4797-1D9F-4288-808C-BE9A31A98C7D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0F19343-8185-4A9F-9165-0EA8544BC925}

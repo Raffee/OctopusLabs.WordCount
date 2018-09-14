@@ -17,7 +17,7 @@ namespace OctopusLabs.WordCounter.Web.Controllers
     public class HomeController : Controller
     {
         private readonly WordCounterService _wordCounterService;
-        private readonly TextExtractionService _textExtractionService;
+        private readonly TextSplitterService _textSplitterService;
 
         private HomeController()
         {
@@ -25,8 +25,9 @@ namespace OctopusLabs.WordCounter.Web.Controllers
 
         public HomeController(IWordCountRepository wordCountRepository, ILoggerFactory loggerFactory)
         {
+            var webPageReaderService = new WebPageReaderService();
+            _textSplitterService = new TextSplitterService(webPageReaderService);
             _wordCounterService = new WordCounterService(wordCountRepository, loggerFactory);
-            _textExtractionService = new TextExtractionService();
         }
 
         public IActionResult Index()
@@ -37,16 +38,26 @@ namespace OctopusLabs.WordCounter.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(string urlToSearch)
         {
-            var wordCounts = await _textExtractionService.GetWordsFromUrlAsync(urlToSearch);
-            _wordCounterService.StoreWordCounts(wordCounts, 100);
-
-            var viewModel = new WordCounterViewModel
+            try
             {
-                Url = urlToSearch,
-                CountedWords = wordCounts,
-                CountedWordsJson = Json(wordCounts)
-            };
-            return View(viewModel);
+                var wordCounts = await _textSplitterService.GetWordsFromUrlAsync(urlToSearch, 100);
+                _wordCounterService.StoreWordCounts(wordCounts, 100);
+
+                var viewModel = new WordCounterViewModel
+                {
+                    Url = urlToSearch,
+                    CountedWords = wordCounts,
+                    CountedWordsJson = Json(wordCounts)
+                };
+                return View(viewModel);
+            }
+            catch (Exception e)
+            {
+                ViewData["ErrorMessage"] = e.Message;
+                ViewData["ErrorStack"] = e.StackTrace;
+                ViewData["ErrorInner"] = e.InnerException?.Message;
+                return View("Error");
+            }
         }
 
         public IActionResult Error()

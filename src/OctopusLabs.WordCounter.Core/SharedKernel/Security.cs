@@ -62,24 +62,9 @@ namespace OctopusLabs.WordCounter.Core.SharedKernel
             }
         }
 
-        public static RSACryptoServiceProvider SaveInContainer(string containerName)
-        {
-            // Create the CspParameters object and set the key container   
-            // name used to store the RSA key pair.  
-            var cp = new CspParameters {KeyContainerName = containerName};
-
-            // Create a new instance of RSACryptoServiceProvider that accesses  
-            // the key container MyKeyContainerName.  
-            var rsa = new RSACryptoServiceProvider(cp);
-
-            return rsa;
-        }
-
         public static RSACryptoServiceProvider GetKeyFromContainer(string containerName)
         {
-            // Create the CspParameters object and set the key container   
-            // name used to store the RSA key pair.  
-            var cp = new CspParameters {KeyContainerName = containerName};
+            var cp = CreateCspParameters(containerName);
 
             // Create a new instance of RSACryptoServiceProvider that accesses  
             // the key container MyKeyContainerName.  
@@ -88,22 +73,15 @@ namespace OctopusLabs.WordCounter.Core.SharedKernel
             return rsa;
         }
 
-        public static void DeleteKeyFromContainer(string containerName)
+        private static CspParameters CreateCspParameters(string containerName)
         {
             // Create the CspParameters object and set the key container   
             // name used to store the RSA key pair.  
-            var cp = new CspParameters {KeyContainerName = containerName};
-
-            // Create a new instance of RSACryptoServiceProvider that accesses  
-            // the key container.  
-            var rsa = new RSACryptoServiceProvider(cp) {PersistKeyInCsp = false};
-
-            // Delete the key entry in the container.  
-
-            // Call Clear to release resources and delete the key from the container.  
-            rsa.Clear();
-
-            Console.WriteLine("Key deleted.");
+            return new CspParameters
+            {
+                KeyContainerName = containerName,
+                Flags = CspProviderFlags.UseMachineKeyStore
+            };
         }
     }
 }

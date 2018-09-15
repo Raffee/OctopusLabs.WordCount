@@ -11,5 +11,6 @@ namespace OctopusLabs.WordCounter.Core.Interfaces
         WordCount Add(WordCount entity);
         void Update(WordCount entity);
         void Delete(WordCount entity);
+        void DeleteAll();
     }
 }

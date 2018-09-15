@@ -16,6 +16,7 @@ To install/run the Octopus Labs Word Counter on your local machine simply get th
 ## Features
 -	Taking advantage of WordCloud2.js gives great looking colorful word clouds.
 -	An admin page to see the top 100 most frequent words accumulated over all the searches.
+-	Hidden "Delete" functionality (Added after submission for convenience). Users can navigate to "http://wordcounter-octopuslabs.azurewebsites.net/Admin/Delete" to delete all existing records.
 
 ### Asymmetric Encryption Key Management
 Asymmetric Encryption requires a pair of keys to correctly encrypt and decrypt data, a public key and a private key. The public key is used to encrypt the secret data, and could be distributed to anyone (thus the name "public") but the

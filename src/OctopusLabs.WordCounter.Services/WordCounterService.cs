@@ -98,5 +98,10 @@ namespace OctopusLabs.WordCounter.Services
 
             return wordCounts;
         }
+
+        public void DeleteAllCountedWords()
+        {
+            _wordCountRepository.DeleteAll();
+        }
     }
 }

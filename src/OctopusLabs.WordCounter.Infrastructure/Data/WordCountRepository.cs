@@ -49,6 +49,19 @@ namespace OctopusLabs.WordCounter.Infrastructure.Data
             _dbContext.SaveChanges();
         }
 
+        public void DeleteAll()
+        {
+            var words = _dbContext.WordCounts.ToList();
+            foreach (var wordCount in words)
+            {
+                var entity = GetById(wordCount.Id);
+                if (entity != null)
+                {
+                    Delete(entity);
+                }
+            }
+        }
+
         public void Update(WordCount entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;

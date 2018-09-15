@@ -38,6 +38,24 @@ namespace OctopusLabs.WordCounter.Web.Controllers
                 ViewData["ErrorStack"] = e.StackTrace;
                 ViewData["ErrorInner"] = e.InnerException?.Message;
                 return View("Error");
+
+            }
+        }
+
+        public ActionResult Delete()
+        {
+            try
+            {
+                _service.DeleteAllCountedWords();
+                return View("Index");
+            }
+            catch (Exception e)
+            {
+                ViewData["ErrorMessage"] = e.Message;
+                ViewData["ErrorStack"] = e.StackTrace;
+                ViewData["ErrorInner"] = e.InnerException?.Message;
+                return View("Error");
+
             }
         }
     }

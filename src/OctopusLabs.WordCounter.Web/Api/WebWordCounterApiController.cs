@@ -38,5 +38,11 @@ namespace OctopusLabs.WordCounter.Web.Api
             
             return new JsonResult(wordCounts);
         }
+
+        [HttpDelete]
+        public void DeleteAllWords()
+        {
+            _wordCounterService.DeleteAllCountedWords();
+        }
     }
 }

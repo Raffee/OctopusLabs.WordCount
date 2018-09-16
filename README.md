@@ -31,10 +31,11 @@ It works somehow similarly to the singleton design pattern in the sense that if 
 The CSP is stored perpetually, therefore we don't need to worry about having different keys across different sessions or operations.
 One important thing to remember is to set the "Flags" property of the CspParameters to "CspProviderFlags.UseMachineKeyStore" in order to use the key store on the host machine. Otherwise you will get a "File Not Found" exception.
 
-### New Technologies/Frameworks/Libraries Learned
+### Things I Learned
 -	Google Cloud SQL (MySql)
 -	WordCloud2.js
 -	Practical Implementation of Asymmetric Encryption 
+-	Writing a Readme document
 
 ## Test
 Some unit tests are found in a separate Tests project. These are not exhaustive and they are here only to provide a sample of how to write unit tests to check the code.
